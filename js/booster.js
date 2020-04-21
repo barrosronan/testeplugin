@@ -1,5 +1,6 @@
-$(function(){
-    function formatToMoeda(valor, cifrao, decimal, milhar){
+(function($){
+
+    $.formatToMoeda = function(valor, cifrao = '', decimal = '.', milhar = ''){
         var valor = valor.replace(/\D/g, '');
         var valFormat = [];
         var retorno = '';
@@ -17,21 +18,20 @@ $(function(){
     
         return cifrao + (cifrao ? ' ' : '') + retorno;
     } 
+    
+    $.fn.moeda = function(prop = false){
+        var config = $.extend({
+            cifrao:  prop.cifrao ? prop.cifrao : '',
+            decimal: prop.decimal ? prop.decimal : '.',
+            milhar: prop.milhar ? prop.milhar : ''
+        });
 
-    (function($){
-        
-        $.fn.moeda = function(prop){
-            var config = $.extend({
-                cifrao:  prop.cifrao ? prop.cifrao : '',
-                decimal: prop.decimal ? prop.decimal : '.',
-                milhar: prop.milhar ? prop.milhar : ','
-            });
-        
-            $(this).on('keyup', function(){
-                $(this).val(formatToMoeda($(this).val(), config.cifrao, config.decimal, config.milhar));
-            });
-            return this;
-        }
+        console.log(config.cifrao);
+    
+        $(this).on('keyup', function(){
+            $(this).val($.formatToMoeda($(this).val(), config.cifrao, config.decimal, config.milhar));
+        });
+        return this;
+    }
 
-    })(jQuery);
-});
+})(jQuery);
