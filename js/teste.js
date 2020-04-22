@@ -1,10 +1,10 @@
 $(function(){
-    //$('#valor').moeda();
-    $('#valor').moeda({
-        decimal: ',',
-        milhar: '.',
-        cifrao: 'R$'
-    });
+    $('#valor').moeda();
+    // $('#valor').moeda({
+    //     decimal: ',',
+    //     milhar: '.',
+    //     cifrao: 'R$'
+    // });
     $('#valor').val($.formatToMoeda('123456789.98', 'R$', ',', '.'));
 
 

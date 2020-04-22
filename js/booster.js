@@ -25,8 +25,8 @@
     $.fn.moeda = function(prop = false){
         var config = $.extend({
             cifrao:  prop.cifrao ? prop.cifrao : '',
-            decimal: prop.decimal ? prop.decimal : '.',
-            milhar: prop.milhar ? prop.milhar : ''
+            decimal: prop.decimal ? prop.decimal : ',',
+            milhar: prop.milhar ? prop.milhar : '.'
         });
 
         $(this).on('keyup', function(){
