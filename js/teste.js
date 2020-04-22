@@ -10,7 +10,7 @@ $(function(){
 
 
     //Maskmoney
-    $('#valor2').maskMoney();
-    $('#valor2').val('123456.77');  //Não fomata valor recebido
+    // $('#valor2').maskMoney();
+    // $('#valor2').val('123456.77');  //Não fomata valor recebido
 
 });
